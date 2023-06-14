@@ -44,13 +44,6 @@
                 <!-- /.d-flex -->
 
                 <div class="d-flex flex-row justify-content-end">
-                  <span class="mr-2">
-                    <i class="fas fa-square text-primary"></i> This Week
-                  </span>
-
-                  <span>
-                    <i class="fas fa-square text-gray"></i> Last Week
-                  </span>
                 </div>
               </div>
             </div>

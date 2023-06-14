@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +24,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Login</p>
 
-      <form action="{{ route('login') }}" method="POST">
+      <form action="http://localhost:8000/mahasiswa" method="">
         <div class="input-group mb-3">
           <input type=text class="form-control" name="tb_username" placeholder="Username" required>
           <div class="input-group-append">
@@ -58,6 +57,7 @@
           <!-- /.col -->
         </div>
       </form>
+      <a href="http://localhost:8000/loginAdmin">Login sebagai Admin</a>
 
     </div>
     <!-- /.login-card-body -->

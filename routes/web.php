@@ -20,9 +20,13 @@ Route::get('/', function () {
 });
 
 
-// Route::get('/login', function () {
-//     return view('login');
-// });
+Route::get('/login', function () {
+    return view('mahasiswa.login.login');
+});
+
+Route::get('/loginAdmin', function () {
+    return view('admin.login.login');
+});
 
 
 //Route Jalur Milik Mahasiswa
@@ -36,7 +40,7 @@ Route::get('/admin', function () {
 });
 
 
-Route::post('/login', 'AuthController@login')->name('login');
+// Route::post('/login', 'AuthController@login')->name('login');
 
 
 
