@@ -52,8 +52,8 @@ Route::post('/lapor', [skbpController::class, 'lapor']);
 Route::get('/lapor', [skbpController::class, 'lapor']);
 
 Route::post('/skbp/upload', [SkbpController::class, 'upload'])->name('skbp.upload');
-Route::post('/skbp/status', [SkbpController::class, 'status'])->name('skbp.status');
-Route::get('/skbp/status', [SkbpController::class, 'status'])->name('skbp.status');
+Route::post('/skbp/status', [SkbpController::class, 'status'])->name('status.upload');
+Route::get('/skbp/status', [SkbpController::class, 'status'])->name('status');
 
 Route::post('/riwayat', [SkbpController::class, 'riwayat']);
 Route::get('/riwayat', [SkbpController::class, 'riwayat']);

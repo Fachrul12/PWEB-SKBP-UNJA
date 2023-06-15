@@ -32,7 +32,7 @@
                 </div>
               </div>
               <div class="card-body">
-                <form id="myForm" action="{{ route('skbp.status') }}" method="POST">
+                <form id="myForm" action="{{ route('status.upload') }}" method="POST">
                     <div class="d-flex">
                         <p class="d-flex flex-column">
                             <label for="name">Nama:</label>
@@ -63,7 +63,8 @@
                             @else
                                 <a>File SPP Tidak Ada</a>
                             @endif
-                          
+
+
                             <label for="file_skbp">File SKBP:</label>
                             <input type="file" name="file_skbp" id="file_skbp" accept=".pdf">
 

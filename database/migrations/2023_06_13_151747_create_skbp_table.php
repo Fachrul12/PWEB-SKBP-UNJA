@@ -14,16 +14,19 @@ class CreateSkbpTable extends Migration
     public function up()
     {
             
-        Schema::create('skbp', function (Blueprint $table) {
+        Schema::create('skbps', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
             $table->string('email');
             $table->integer('nomor_wa');
             $table->string('fakultas');
             $table->string('prodi');
-            $table->string('ktm');
-            $table->string('spp');
+            $table->blob('ktm');
+            $table->blob('spp');
             $table->timestamps();
+            $table->timestamp('validasi_at');
+            $table->string('status');
+            $table->blob('file_skbp');
         });
     }
 
