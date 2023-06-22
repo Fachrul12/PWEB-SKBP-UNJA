@@ -12,7 +12,7 @@
   <!-- IonIcons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="{{url('dist/css/adminlte.min.css')}}">
 </head>
 <!--
 `body` tag options:
@@ -97,7 +97,7 @@
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="http://localhost:8000/admin" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="{{url('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">SKBP</span>
     </a>
 
@@ -124,7 +124,7 @@
                 </a>
               </li>         
               <li class="nav-item">
-                <a href="http://localhost:8000/validasi" class="nav-link">
+                <a href="http://localhost:8000/list" class="nav-link">
                 <i class="nav-icon fas fa-edit"></i>
                   <p>Validasi</p>
                 </a>
@@ -176,15 +176,15 @@
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="{{url('plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{url('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE -->
-<script src="dist/js/adminlte.js"></script>
+<script src="{{url('dist/js/adminlte.js')}}"></script>
 
 <!-- OPTIONAL SCRIPTS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
-<script src="dist/js/pages/dashboard3.js"></script>
+<script src="{{url('plugins/chart.js/Chart.min.js')}}"></script>
+<script src="{{url('dist/js/pages/dashboard3.js')}}"></script>
 
 </body>
 </html>

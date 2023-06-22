@@ -32,57 +32,59 @@
                 </div>
               </div>
               <div class="card-body">
-                <form id="myForm" action="{{ route('skbp.status') }}" method="POST">
+                @foreach ($sk as $skbp)
+                <form id="myForm" action="/validasiSkbp/update/{{$skbp->id}}" method="POST" enctype="multipart/form-data">
                     <div class="d-flex">
                         <p class="d-flex flex-column">
-                            <input type="hidden" name="id" value="{{ $selectedSkbp ? $selectedSkbp->id : '' }}" readonly>
+                          @csrf
+                          <input type="hidden" name="id" value="{{ $skbp->id}}" readonly>
                           
-                            <label for="name">Nama:</label>
-                            <input type="text" id="name" name="name" value="{{ $selectedSkbp ? $selectedSkbp->nama : '' }}" readonly>
+                          <label for="name">Nama:</label>
+                          <input type="text" id="name" name="name" value="{{ $skbp->nama}}" readonly>
             
-                            <label for="email">Email:</label>
-                            <input type="text" id="email" name="email" value="{{ $selectedSkbp ? $selectedSkbp->email : '' }}" readonly>
-            
-                            <label for="nomor">Nomor WA:</label>
-                            <input type="text" id="nomor" name="nomor" value="{{ $selectedSkbp ? $selectedSkbp->nomor_wa : '' }}" readonly>
-
+                          <label for="email">Email:</label>
+                          <input type="text" id="email" name="email" value="{{ $skbp->email }}" readonly>
+                          
+                          <label for="nomor">Nomor WA:</label>
+                          <input type="text" id="nomor" name="nomor" value="{{ $skbp->nomor_wa}}" readonly>
+                          
                             <label for="fakultas">Fakultas:</label>
-                            <input type="text" id="fakultas" name="fakultas" value="{{ $selectedSkbp ? $selectedSkbp->fakultas : '' }}" readonly>
+                            <input type="text" id="fakultas" name="fakultas" value="{{ $skbp->fakultas }}" readonly>
 
                             <label for="prodi">Program Studi:</label>
-                            <input type="text" id="prodi" name="prodi" value="{{ $selectedSkbp ? $selectedSkbp->prodi : '' }}"  readonly>
-
+                            <input type="text" id="prodi" name="prodi" value="{{ $skbp->prodi}}"  readonly>
+                            
                             <label for="ktm">File KTM:</label>
-                            @if ($selectedSkbp && $selectedSkbp->ktm)
-                                <a href="{{ $selectedSkbp->ktm }}">Unduh File KTM</a>
+                            @if ($skbp->ktm)
+                            <a href="{{ $skbp->ktm }}">Unduh File KTM</a>
                             @else
-                                <a>File KTM Tidak Ada</a>
+                            <a>File KTM Tidak Ada</a>
                             @endif
-
+                            
                             <label for="spp">File SPP:</label>
-                            @if ($selectedSkbp && $selectedSkbp->spp)
-                                <a href="{{ $selectedSkbp->spp }}">Unduh File SPP</a>
+                            @if ($skbp->spp)
+                            <a href="{{ $skbp->spp }}">Unduh File SPP</a>
                             @else
-                                <a>File SPP Tidak Ada</a>
+                            <a>File SPP Tidak Ada</a>
                             @endif
-
-
+                           
+                            
+                            
+                            @endforeach
+                            
                             <label for="file_skbp">File SKBP:</label>
                             <input type="file" name="file_skbp" id="file_skbp" accept=".pdf">
-
-                            <input type="hidden" name="id" value="{{ $selectedSkbp ? $selectedSkbp->id : '' }}">
-
-
-                        </p>
-                    </div>
-                    <!-- /.d-flex -->
-                    <div class="d-flex flex-row justify-content-end">
-                      <div class="ml-auto mx-2">
-                          <button type="submit" class="btn btn-danger" name="status" value="rejected"  disabled>Tolak</button>
-                      </div>
-                      <div class="mr-auto mx-2">
-                          <button type="submit" class="btn btn-primary" name="status" value="accepted"  disabled>Validasi</button>
-                      </div>
+                            
+                          </p>
+                        </div>
+                        <!-- /.d-flex -->
+                        <div class="d-flex flex-row justify-content-end">
+                          <div class="ml-auto mx-2">
+                            <button type="submit" class="btn btn-danger" name="status" value="rejected" >Tolak</button>
+                          </div>
+                          <div class="mr-auto mx-2">
+                            <button type="submit" class="btn btn-primary" name="status" value="accepted" >Validasi</button>
+                          </div>
                   </div>
                   
                   

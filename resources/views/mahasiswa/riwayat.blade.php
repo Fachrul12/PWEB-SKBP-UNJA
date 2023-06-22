@@ -63,7 +63,7 @@
                 @endif
             </td>
             <td>
-              @if ($skbp->file_skbp)
+              @if ($skbp->file_skbp )
                   <a href="{{ $skbp->file_skbp }}">Unduh Dokumen</a>
               @else
                   Tidak ada dokumen

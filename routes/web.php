@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\skbpController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ValidasiController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +31,7 @@ Route::get('/loginAdmin', function () {
 });
 
 
+
 //Route Jalur Milik Mahasiswa
 Route::get('/mahasiswa', function () {
     return view('mahasiswa.dashboard');
@@ -43,16 +46,17 @@ Route::get('/admin', function () {
 // Route::post('/login', 'AuthController@login')->name('login');
 
 
-
-
+Route::get('/validasiSkbp/{id}',[ValidasiController::class,'show']);
+Route::post('/validasiSkbp/update/{id}',[ValidasiController::class,'update']);
+Route::get('/status', [skbpController::class, 'status'])->name('skbp.status');
 Route::get('/list', [SkbpController::class, 'list']);
-Route::get('/validasi', [SkbpController::class, 'validasi']);
-
+Route::get('/validasi/{id}', [SkbpController::class, 'validasi'])->name('validasi');
+// Route::get('/validasiSkbp',[validasiController::class,'edit'])->name('validasiskbp.edit');
 Route::post('/lapor', [skbpController::class, 'lapor']);
 Route::get('/lapor', [skbpController::class, 'lapor']);
 
 Route::post('/skbp/upload', [SkbpController::class, 'upload'])->name('skbp.upload');
-Route::post('/skbp/status', [SkbpController::class, 'status'])->name('status.upload');
+// Route::post('/skbp/status', [SkbpController::class, 'status'])->name('status.upload');
 Route::get('/skbp/status', [SkbpController::class, 'status'])->name('status');
 
 Route::post('/riwayat', [SkbpController::class, 'riwayat']);

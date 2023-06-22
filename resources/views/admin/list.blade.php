@@ -60,10 +60,9 @@
                   <td>{{ $skbp->prodi }}</td>
                   <td>{{ $skbp->created_at }}</td>
                   <td>
-                    <form action="http://localhost:8000/validasi" method="GET">
-                        <input type="hidden" name="selected_skbp_id" value="{{ $skbp->id }}">
-                        <button type="submit">Pilih</button>
-                    </form>
+                    
+                        <a href="http://localhost:8000/validasiSkbp/{{$skbp->id}}" >Pilih</button>
+                    
                 </td>
               </tr>
               @endunless

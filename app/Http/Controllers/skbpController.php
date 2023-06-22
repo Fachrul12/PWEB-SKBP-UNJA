@@ -24,7 +24,7 @@ class skbpController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function validasi(Request $request)
+    public function validasi(Request $request,$id)
     {
     $selectedSkbp = null;
 
@@ -36,6 +36,11 @@ class skbpController extends Controller
 
     $skbps = Skbp::all();
     return view('admin.validasi', ['skbps' => $skbps, 'selectedSkbp' => $selectedSkbp]);
+    }
+
+    public function validasiskbp($id)
+    {
+        echo "echo";
     }
 
     /**
@@ -130,24 +135,32 @@ class skbpController extends Controller
      }
     
      public function status(Request $request)
-{
-    $id = $request->input('id');
-    $status = $request->input('status');
+     {
+        dd($request);
+        $id = $request->input('id');
+        $status = $request->input('status');
+        $fileSkbp = $request->file('file_skbp');
 
-    $skbp = SKBP::findOrFail($id);
-    $skbp->status = $status;
+        $skbp = SKBP::findOrFail($id);
+        $skbp->status = $status;
 
-    if ($status === 'rejected') {
-        $message = 'SKBP ditolak.';
-    } elseif ($status === 'accepted') {
-        $message = 'SKBP diterima.';
-    } else {
-        $message = 'Status SKBP diubah.';
+        if ($fileSkbp) {
+            $fileSkbpPath = $fileSkbp->store('skbp', 'public'); // Menyimpan file_skbp di storage dengan path 'public/skbp'
+            $skbp->file_skbp = $fileSkbpPath;
+        }
+
+        if ($status === 'rejected') {
+            $message = 'SKBP ditolak.';
+        } elseif ($status === 'accepted') {
+            $message = 'SKBP diterima.';
+        } else {
+            $message = 'Status SKBP diubah.';
+        }
+
+        // $skbp->save();
+
+        // return redirect()->route('admin.validasi')->with('message', $message);
     }
-    $skbp->save();
-
-    return redirect()->route('admin.validasi')->with('message', $message);
-}
 
 
 

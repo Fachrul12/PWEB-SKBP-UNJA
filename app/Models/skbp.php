@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class skbp extends Model
 {
     protected $table = 'skbps';
+
+    protected $guarded = ['id'];
 }
